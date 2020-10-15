@@ -1,0 +1,21 @@
+on: 
+  schedule:
+   - cron:  '30 18 * * *'
+
+jobs:
+  commit-report:
+    runs-on: ubuntu-latest
+    name: Daily commit report to slack
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - id: commit
+      run: |
+          IFS=$'\n';NAME='';
+          for i in `git log --pretty="%an" | sort | uniq`;do NAME+="$i `git rev-list --count --since=yesterday --before=today --author=$i --remotes`,";done;NAME=${NAME%?}; echo ::set-output name=AUTHOR::$NAME
+    - name: Webhook
+      uses: krtkeyan/webhook-action@master
+      with:
+        url: ${{ secrets.WEBHOOK_URL }}
+        body: ${{ steps.commit.outputs.AUTHOR }}
