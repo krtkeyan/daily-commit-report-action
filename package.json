@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "name": "slackbot",
+  "version": "1.0.0",
+  "description": "Cloudflare Workers project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write '**/*.{js,css,json,md}'"
+  },
+  "author": "karthikeyan",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20",
+    "qs": "^6.9.4",
+    "serverless-cloudflare-workers": "^1.2.0"
+  }
+}
