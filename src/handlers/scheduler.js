@@ -2,15 +2,15 @@ import { createMessageBlock } from '../utils/slack';
 import Router from "../utils/router";
 
 const checkLeaderboard = async (params) => {
-    const parseCSVToObj = params.split('\n')
+    
+    const parseCSVToObj = params.split(',')
                             .reduce(
                                 (acc,val) => { 
-                                    const [author, commit] = val.split(','); 
-                                    return { ...acc,[author]:commit.trim() } 
+                                    const [ _, author, commit] = val.match(/([\w\s]+)\s(\d+)/); 
+                                    return { ...acc,[author.toUpperCase()]:commit } 
                                 },{}
                             );
     const sortedObj = Object.entries(parseCSVToObj).sort((a,b) => b[1]-a[1]).reduce((acc,[author,commit])=>({...acc,[author]:commit}),{})
-    
     await fetch(SLACK_WEBHOOK_URL, {
             body: JSON.stringify({ blocks: createMessageBlock(sortedObj) }),
             method: "POST",
