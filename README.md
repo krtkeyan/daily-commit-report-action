@@ -41,6 +41,7 @@ To get start, create a folder `.github/workflows` and add `[branch'.yml` that de
 Go to your slack apps page, create a bot and under incoming section - create a webhook trigger that notifies your specified channel. [Create a basic slack bot - freecodecamp](https://www.freecodecamp.org/news/how-to-build-a-basic-slackbot-a-beginners-guide-6b40507db5c5/)
 
 
+![](https://res.cloudinary.com/dojgeix1u/image/upload/v1602844060/Twitter_Post_-_5_cgdzhy.png)
 ---
 
 ### Day 01
