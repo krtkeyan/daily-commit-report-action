@@ -53,6 +53,6 @@ Thought to learn github actions ( inspired by automations in [actionsflow](https
 At first haven't explored much, thought need to track each commits separately. Later, came to know about `actions/checkout` action step, that clones the repo into the runner and `git` cmd is accessible. That took a lot more time, actually.
 
 ### Day 03
-Integrated the cloudflare worker with the github actions by means of webhook-action, Thanks to Joel for making this action available in store. After integration, workflow keeps on failing with 500 status code. Cloudflare doesn't support native logger, that makes harder to find what causes the issue. At last, found out the root cause and got our slack message.
+Integrated the cloudflare worker with the github actions by means of webhook-action, Thanks to Joel for making this action available in store. After integration, workflow keeps on failing with 500 status code. Cloudflare doesn't support native logger, that makes harder to find what causes the issue. At last, found out the root cause and got the slack message.
 
 
